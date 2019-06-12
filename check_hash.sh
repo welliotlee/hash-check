@@ -6,32 +6,24 @@ function grab_hash(){
 	echo $HASH
 }
 
-TARGET='./sample_log.txt'
-RETURN_TAIL=$(tail -n 1 $TARGET)
-arr=($RETURN_TAIL)
 
-HASH_LIST="7dc0a97fa57c2c1518fdb2773557a51ba83e961t 7dc0a97fa57c2c1518fdb2773557a51ba83e961c"
+HOST_LIST=$(ls sample*)
+echo This is the host list $HOST_LIST
 
-PRIMARY_HASH=${arr[3]}
+PRIMARY_HASH=$(grab_hash $HOST_LIST[0])
+echo This is the primary hash $PRIMARY_HASH
 
 # Hash should always be the fourth element, aka 4 - 1
 #echo ${arr[3]}
-echo $(grab_hash ./sample_log.txt)
-echo $(grab_hash ./sample_log.txt)
-if [ $(grab_hash ./sample_log.txt) == "meow" ]
-then
-	echo Works
-else
-	echo Fails
-fi
 
 #echo "Using primary hash of $PRIMARY_HASH"
-for host in $HASH_LIST
+for host in $HOST_LIST
 do
-	if [ $host == $PRIMARY_HASH ]
+	HASH=$(grab_hash $host)
+	if [ $HASH == $PRIMARY_HASH ]
 	then
-		echo "\033[1;32m$host - Hash Match\033[0m"
+		echo "\033[1;32m$host - $HASH - Hash Match\033[0m"
 	else
-		echo "\033[1;31m$host - Hash mismatch\033[0m"
+		echo "\033[1;31m$host - $HASH - Hash mismatch\033[0m"
 	fi
 done
