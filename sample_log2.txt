@@ -1,2 +1,4 @@
 [06/12/2019 03:32:49] willilee        1f3db2ddd40e7f62fc11792bd6fdebe746232b00      First commitm
 [06/12/2019 03:33:14] willilee        09793518a75913e15bde301381af23bbac7f4975      Created sample log
+[06/12/2019 03:33:28] willilee        1a8b6f58abbfde1e29b352d502524b7c43ed80f2      Added sample log 1
+[06/12/2019 03:33:30] willilee        1a8b6f58abbfde1e29b352d502524b7c43ed80f2      Added sample log 1
